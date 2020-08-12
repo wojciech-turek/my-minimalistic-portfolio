@@ -9,7 +9,7 @@
 
 .container {
   width: 300px;
-  height: 98vh;
+  height: 700px;
   max-height: -webkit-fill-available;
   display: flex;
   flex-flow: column;
@@ -24,13 +24,13 @@
 
 .chat {
   display: flex;
+  margin-bottom: auto;
   flex-flow: column;
   align-items: flex-end;
   align-content: flex-end;
   justify-content: flex-end;
   margin-top: 16px;
   width: 100%;
-  min-height: 100%;
 }
 
 .textInput {
@@ -43,6 +43,7 @@
 .contact-form {
   width: 100%;
   display: flex;
+  position: relative;
 }
 
 .msgBox {
@@ -128,6 +129,20 @@ a {
   font-family: "Segoe UI";
   margin: 8px 0;
   margin-left: 10px;
+}
+
+.send {
+  font-size: 18px;
+  position: absolute;
+  top: 54%;
+  right: 45px;
+  transform: translateY(-50%);
+  border: none;
+  outline: none;
+}
+
+.sendIcon {
+  color: rgb(50, 50, 50);
 }
 
 .delivered {

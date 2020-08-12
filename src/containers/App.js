@@ -10,7 +10,7 @@ import Scrollbars from "react-custom-scrollbars";
 import emailjs from "emailjs-com";
 import Spinner from "../UI/Spinner";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
+import { faCheckCircle, faPaperPlane } from "@fortawesome/free-solid-svg-icons";
 
 function App() {
   const [message, setMessage] = useState("");
@@ -20,6 +20,7 @@ function App() {
   let confirmed = (
     <FontAwesomeIcon className="delivered" icon={faCheckCircle} />
   );
+  let send = <FontAwesomeIcon className="sendIcon" icon={faPaperPlane} />;
   let emailsArray = message.match(
     /([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9._-]+)/gi
   );
@@ -144,6 +145,9 @@ function App() {
               className="write"
               placeholder="Type your email and message"
             />
+            <button type="submit" className="send">
+              {send}
+            </button>
             {sending ? <Spinner /> : sent ? confirmed : null}
           </form>
         </div>
