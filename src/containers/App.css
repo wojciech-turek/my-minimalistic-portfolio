@@ -7,16 +7,10 @@
   justify-content: center;
 }
 
-@media (min-width: 1024px) {
-  .App {
-    align-items: center;
-  }
-}
-
 .container {
   width: 300px;
   height: 98vh;
-  max-height: 700px;
+  max-height: -webkit-fill-available;
   display: flex;
   flex-flow: column;
   align-items: center;
@@ -174,5 +168,13 @@ a {
 @media (min-width: 360px) {
   .container {
     width: 350px;
+  }
+}
+@media (min-width: 1024px) {
+  .App {
+    align-items: center;
+  }
+  .container {
+    max-height: 720px;
   }
 }
