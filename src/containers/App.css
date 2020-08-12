@@ -1,16 +1,20 @@
 .App {
   width: 100%;
-  height: 100vh;
+  height: 98vh;
+  max-height: 800px;
   max-height: -webkit-fill-available;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
 }
 
 .container {
   width: 300px;
-  height: 700px;
-  max-height: -webkit-fill-available;
+  height: 98%;
+  max-height: 660px;
+  margin-top: 20px;
+  border-top: 2px solid rgba(0, 0, 0, 0.024);
+  box-sizing: border-box;
   display: flex;
   flex-flow: column;
   align-items: center;
@@ -56,6 +60,7 @@
   align-self: flex-start;
   display: flex;
   align-items: flex-end;
+  background: none;
 }
 .receiver {
   display: flex;
@@ -116,19 +121,24 @@ a {
   background-color: rgba(0, 0, 0, 0.1);
 }
 
-.write {
+.inputBg {
   background-color: rgb(241, 241, 241);
+  padding: 0 8px;
   border-radius: 10px;
+  margin: 8px 0px;
+  margin-left: 16px;
+  width: 80%;
+}
+
+.write {
+  background-color: inherit;
   height: 40px;
   line-height: 40px;
   box-sizing: border-box;
-  padding: 0 8px;
   border: none;
-  width: 85%;
+  width: 100%;
   resize: none;
   font-family: "Segoe UI";
-  margin: 8px 0;
-  margin-left: 10px;
 }
 
 .send {
@@ -138,11 +148,14 @@ a {
   right: 45px;
   transform: translateY(-50%);
   border: none;
+  background-color: transparent;
   outline: none;
+  cursor: pointer;
 }
 
 .sendIcon {
   color: rgb(50, 50, 50);
+  background-color: none;
 }
 
 .delivered {
@@ -191,5 +204,8 @@ a {
   }
   .container {
     max-height: 720px;
+  }
+  .social {
+    margin: 20px 0 10px 0;
   }
 }

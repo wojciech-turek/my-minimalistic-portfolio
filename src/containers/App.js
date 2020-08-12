@@ -25,6 +25,8 @@ function App() {
     /([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9._-]+)/gi
   );
 
+  let messageDisplayed = message;
+
   function sendEmail(e) {
     e.preventDefault();
 
@@ -56,7 +58,7 @@ function App() {
     } else {
       setMessage("Not Sent! No email :(");
       setTimeout(() => {
-        setMessage("");
+        setMessage(messageDisplayed);
       }, 1000);
     }
   }
@@ -138,16 +140,18 @@ function App() {
         <div className="textInput">
           <div className="divider"></div>
           <form className="contact-form" onSubmit={sendEmail}>
-            <input
-              name="message"
-              onChange={(e) => setMessage(e.target.value)}
-              value={message}
-              className="write"
-              placeholder="Type your email and message"
-            />
-            <button type="submit" className="send">
-              {send}
-            </button>
+            <div className="inputBg">
+              <input
+                name="message"
+                onChange={(e) => setMessage(e.target.value)}
+                value={messageDisplayed}
+                className="write"
+                placeholder="Type your email and message"
+              />
+              <button type="submit" className="send">
+                {send}
+              </button>
+            </div>
             {sending ? <Spinner /> : sent ? confirmed : null}
           </form>
         </div>
