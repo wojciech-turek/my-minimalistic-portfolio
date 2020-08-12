@@ -1,14 +1,14 @@
 import "./App.css";
 
-import building from "./giphy.gif";
+import building from "../assets/giphy.gif";
 import React, { useState } from "react";
-import profilePic from "./profpic.png";
-import linkedinIcon from "./linkedinIcon.png";
-import githubinIcon from "./GitHubIcon.png";
-import favebookIcon from "./facebookIcon.png";
+import profilePic from "../assets/profpic.png";
+import linkedinIcon from "../assets/linkedinIcon.png";
+import githubinIcon from "../assets/GitHubIcon.png";
+import favebookIcon from "../assets/facebookIcon.png";
 import Scrollbars from "react-custom-scrollbars";
 import emailjs from "emailjs-com";
-import Spinner from "./UI/Spinner";
+import Spinner from "../UI/Spinner";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
 
