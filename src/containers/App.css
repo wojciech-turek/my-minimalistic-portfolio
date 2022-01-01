@@ -4,6 +4,7 @@
   max-height: 800px;
   max-height: -webkit-fill-available;
   display: flex;
+  overflow-y: hidden;
   align-items: flex-start;
   justify-content: center;
 }
@@ -11,15 +12,16 @@
 .container {
   width: 300px;
   height: 98%;
-  max-height: 660px;
+  max-height: 630px;
   margin-top: 20px;
   border-top: 2px solid rgba(0, 0, 0, 0.024);
   box-sizing: border-box;
   display: flex;
   flex-flow: column;
+  position: relative;
   align-items: center;
   justify-content: space-between;
-  font-family: "Segoe UI";
+  font-family: "Segoe UI", "Helvetica Neue";
   box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
     0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
     0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
@@ -56,6 +58,23 @@
   width: 75vw;
 }
 
+.backdrop {
+  opacity: 0.4;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 100;
+  background-color: #002c55;
+}
+
+.bd_visible {
+  display: block;
+}
+
+.bd_hidden {
+  display: none;
+}
+
 .sender {
   align-self: flex-start;
   display: flex;
@@ -83,6 +102,13 @@
 p {
   padding: 0;
   margin: 0;
+}
+
+.typing {
+  height: 200px;
+}
+.sendMsgBtn {
+  width: 100%;
 }
 
 a {
@@ -122,12 +148,13 @@ a {
 }
 
 .inputBg {
-  background-color: rgb(241, 241, 241);
   padding: 0 8px;
-  border-radius: 10px;
-  margin: 8px 0px;
-  margin-left: 16px;
-  width: 80%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 12px;
+  height: 100%;
+  width: 100%;
 }
 
 .write {

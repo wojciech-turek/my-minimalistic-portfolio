@@ -7,65 +7,19 @@ import linkedinIcon from "../assets/linkedinIcon.png";
 import githubinIcon from "../assets/GitHubIcon.png";
 import favebookIcon from "../assets/facebookIcon.png";
 import Scrollbars from "react-custom-scrollbars";
-import emailjs from "emailjs-com";
-import Spinner from "../UI/Spinner";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCheckCircle, faPaperPlane } from "@fortawesome/free-solid-svg-icons";
+import { Button } from "@mui/material";
+import SlideUp from "../UI/SlideUp";
+import ContactForm from "../components/ContactForm";
 
 function App() {
-  const [message, setMessage] = useState("");
-  const [sending, setSending] = useState(false);
-  const [sent, setSent] = useState(false);
-
-  let confirmed = (
-    <FontAwesomeIcon className="delivered" icon={faCheckCircle} />
-  );
-  let send = <FontAwesomeIcon className="sendIcon" icon={faPaperPlane} />;
-  let emailsArray = message.match(
-    /([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9._-]+)/gi
-  );
-
-  let messageDisplayed = message;
-
-  function sendEmail(e) {
-    e.preventDefault();
-
-    if (emailsArray != null && emailsArray.length) {
-      setSending(true);
-      emailjs
-        .sendForm(
-          "smtp_server",
-          "template_6pL0MhU6",
-          e.target,
-          "user_GtDfjyoxLr4JYwgOTanbi"
-        )
-        .then(
-          (result) => {
-            setMessage("Sent!");
-            setTimeout(() => {
-              setMessage("");
-            }, 1000);
-            setSending(false);
-            setSent(true);
-            setTimeout(() => {
-              setSent(false);
-            }, 1000);
-          },
-          (error) => {
-            setSending(false);
-          }
-        );
-    } else {
-      setMessage("Not Sent! No email :(");
-      setTimeout(() => {
-        setMessage(messageDisplayed);
-      }, 1000);
-    }
-  }
+  const [drawerOpen, setDrawerOpen] = useState(false);
 
   return (
     <div className="App">
       <div className="container">
+        <SlideUp isOpen={drawerOpen} close={() => setDrawerOpen(false)}>
+          <ContactForm />
+        </SlideUp>
         <Scrollbars autoHide autoHideTimeout={1000}>
           <div className="chat">
             <div className="sender">
@@ -83,7 +37,7 @@ function App() {
               </div>
               <div className="msgBox outgoing">
                 <p>
-                  Umm, it's quite original, but you can always email me at{" "}
+                  Umm, maybe, but but if you want to talk just email me at{" "}
                   <a href="mailto:contact@wojciechturek.com">
                     contact@wojciechturek.com
                   </a>
@@ -99,8 +53,8 @@ function App() {
             <div className="receiver">
               <div className="msgBox outgoing">
                 <p>
-                  You know me, I love JS, React, Angular etc., I can self teach
-                  based on project needs
+                  You know me, I love to work in Blockchain, Solidty, React
+                  etc., I can self teach based on project needs
                 </p>
               </div>
             </div>
@@ -139,21 +93,13 @@ function App() {
         </Scrollbars>
         <div className="textInput">
           <div className="divider"></div>
-          <form className="contact-form" onSubmit={sendEmail}>
-            <div className="inputBg">
-              <input
-                name="message"
-                onChange={(e) => setMessage(e.target.value)}
-                value={messageDisplayed}
-                className="write"
-                placeholder="Type your email and message"
-              />
-              <button type="submit" className="send">
-                {send}
-              </button>
-            </div>
-            {sending ? <Spinner /> : sent ? confirmed : null}
-          </form>
+          <Button
+            variant="contained"
+            className="sendMsgBtn"
+            onClick={() => setDrawerOpen(true)}
+          >
+            Send me a message
+          </Button>
         </div>
       </div>
     </div>
